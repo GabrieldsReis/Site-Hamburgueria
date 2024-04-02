@@ -2,7 +2,7 @@
 
 
  if ( sessionStorage.getItem ("nome" ) == null ) {
- window.location.href = "D:/xampp/htdocs/Gabriel%20Reis/Hamburgueria/login/login.html"
+ window.location.href = "../index.html "
   
 
  }
