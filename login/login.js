@@ -26,7 +26,6 @@ window.login = function login() {
 
     var senha = document.getElementById("senha").value;
 
-console.log("ok")
     get(child(ref(database), 'usuarios/' + usuario)).then
     ((snapshot) => {
 
