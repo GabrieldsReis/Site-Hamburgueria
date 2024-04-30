@@ -1,8 +1,8 @@
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js';
 
-import { child, get, getDatabase, set } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
-import { ref, getStorage } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
+import { child, get, getDatabase, set, } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
+import { ref, getStorage, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBJodswmt7lrtvmvTlCG1sLJa9bj0FdIs0",
@@ -20,10 +20,16 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
-var file  =  {};
-var choseFile = (e) => {
+var file = {};
 
-    file = e.target.files[0];
+
+window.ChoseFile = (e) => {
+
+    var file = e.target.files[0];
+
+    window.file = file;
+    console.log(file);
+
 }
 
 
@@ -33,52 +39,84 @@ var choseFile = (e) => {
 
 window.cadastro = function cadastro() {
 
-    
+
     var produto = document.getElementById("produto").value;
 
     var preco = document.getElementById("preço").value;
 
     var img = document.getElementById("botao").value;
 
+
+
     if (produto == "" || preço == "" || img == "") {
 
         document.getElementById("mudar").innerHTML = "Preencha os campos"
-        
+
 
 
     }
 
     else {
-console.log("ok")
+
+        const storageRef = ref(getStorage(), 'imagens/' + file.name);
+
+        const uploadTask = uploadBytesResumable(storageRef, file, '');
+
+        uploadTask.on('state_changed', (snapshot) => {
+
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log('upload esta' + progress + '% concluido.');
+            (error) => {
+
+                if (error.code == 'storage/unauthorized') {
+                    console.log("O usuario nao tem permissao para acessar o objeto")
+                }
+                if (error.code == 'storage/canceled') {
+                    console.log("O usuario cancelou o upload");
+                }
+                if (error.code == 'storage/uknown') {
+                    console.log("Ocorreu um, erro desconhecido. Inspecione error.serverResponse");
+                }
+
+
+
+
+            }
+
+        },
+
+
+
+            console.log("ok")
         document.getElementById("mudar").innerHTML = ""
 
         get(child(ref(database), 'produtos/' + produto)).then
-            ((snapshot) => {
-console.log("ok2")
-                if (snapshot.exists()) {
+                ((snapshot) => {
+                    console.log("ok2")
+                    if (snapshot.exists()) {
 
-                    document.getElementById("mudar").innerHTML = "Usuario ja registrado"
+                        document.getElementById("mudar").innerHTML = "Usuario ja registrado"
 
-                } else {
+                    } else {
 
-                    document.getElementById("mudar").innerHTML = "usuario cadastrado";
-                    ref(getStorage(), document.getElementById("botao").value)
-                     set(ref(database, 'produtos/' + produto),
+                        document.getElementById("mudar").innerHTML = "usuario cadastrado";
+                        ref(getStorage(), document.getElementById("botao").value)
+                        set(ref(database, 'produtos/' + produto),
 
-                        {
+                            {
 
-                            preco: preco
+                                preco: preco
 
-                        }
+                            }
 
-                    ); 
-                }
-            });
- 
+                        );
+                    }
+                });
 
-            console.log(document.getElementById("botao"))
-const imagem = ref(getStorage(), document.getElementById("botao").value)
-console.log(imagem)
+
+        console.log(document.getElementById("botao"))
+        const imagem = ref(getStorage(), document.getElementById("botao").value)
+        console.log(imagem)
     }
 
 
