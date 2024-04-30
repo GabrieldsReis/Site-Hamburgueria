@@ -1,0 +1,28 @@
+* {
+
+    margin: 0px
+}
+
+html,body {
+
+height: 100%;
+}
+
+.form-container{
+max-width: 350px;
+padding: 1rem;
+
+
+}
+
+
+
+
+
+p {
+
+    font-size: 40px;
+    text-align: center;
+    padding-bottom: 10px;
+
+}

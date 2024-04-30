@@ -1,0 +1,61 @@
+body{
+
+    margin: 0;
+    padding: 0;
+    background-color: #a9a9a9;
+
+}
+
+.out-box {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.box-container {
+
+    background-color: rgba(0, 0, 0, 0.466);
+ padding: 0px 0px 10px 10px;
+width: 80%;
+}
+
+.top-box{
+
+display: flex;
+
+
+}
+#mais {
+
+height: 14px;
+width: 14px;
+}
+
+p{
+
+    color: white;
+}
+#pd {
+
+border-bottom: 1px solid white;
+
+}
+
+
+img {
+
+padding: 5px;
+width: 100px;
+height: 100px;
+
+}
+
+.box-price {
+
+width: 20%;
+height: 380px;
+background-color: rgba(0, 0, 0, 0.466);
+
+}
