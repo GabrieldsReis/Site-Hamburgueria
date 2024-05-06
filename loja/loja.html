@@ -2,15 +2,106 @@
 <html>
 
 <head>
-    <title>excercicio 7</title>
+    <title>Hamburgueria</title>
     <link rel="stylesheet" href="loja.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel=”stylesheet” href=”https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css”>
 </head>
 
-<body>
-    <div class="container">
+<body style="min-width:372px">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom shadow-sm mb-3"> <!--aba de navegaçao-->
+        <div class="container">
+            <a class="navbar-brand" href=""><strong>Hamburgueria</strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class=".navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white">Principal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white">Politica de Privacidade</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white">Sobre</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="align-self-end">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white">Quero me Cadastrar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white">Entrar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white">
+
+                            <i class="fa-light fa-cart-shopping"></i> <!--ver isso dps deu errado-->
+
+                        </a>
+
+                    </li>
+                </ul>
+            </div>
+
+
+
+        </div>
+
+        </div>
+
+
+    </nav>
+
+
+    <header class="container">
+        <div id="carouselMain" class="carousel carousel-dark slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselMain" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselMain" data-slide-to="1"></li>
+                <li data-target="#carouselMain" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active text-center">
+                    <img class="d-block w-100" src="../img/slides/img-1.webp" alt=""
+                        class="img-fluid d-none d-md-block">
+
+                </div>
+                <div class="carousel-item text-center">
+                    <img class="d-block w-100" src="../img/slides/img-1.webp" alt=""
+                        class="img-fluid d-none d-md-block">
+
+                </div>
+                <div class="carousel-item text-center">
+                    <img class="d-block w-100" src="../img/slides/img-1.webp" alt=""
+                        class="img-fluid d-none d-md-block">
+
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselMain" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only"></span>
+            </a>
+            <a class="carousel-control-next" href="#carouselMain" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" arial-hidden ="true"></span>
+                <span class="sr-only"></span>
+            </a>
+        </div>
+        <hr class="mt-3"> <!--fiz igual ao bootstrap e deu errado deve ser a imagem-->
+
+    </header>
+
+
+    <div>
         <div class="out-box">
-        
+
             <div class="box-container">
                 <p id="pd"> Produto</p>
                 <div class="top-box">
@@ -25,12 +116,14 @@
                         <img id="mais" src="https://assets.stickpng.com/images/58afdddc829958a978a4a6a5.png" alt="-"
                             onclick="mudandoQnt('-', this.parentNode)">
                         <span>0</span>
-                        <img id="mais" src="https://icon-library.com/images/black-plus-icon/black-plus-icon-24.jpg" onclick="mudandoQnt('+', this.parentNode)">
-                        <h6><span> 0  </span>x R$<span> 49,99</span> <br> Total: R$ <span class = "precos"> 00,00 </span></h6>
+                        <img id="mais" src="https://icon-library.com/images/black-plus-icon/black-plus-icon-24.jpg"
+                            onclick="mudandoQnt('+', this.parentNode)">
+                        <h6><span> 0 </span>x R$<span> 49,99</span> <br> Total: R$ <span class="precos"> 00,00 </span>
+                        </h6>
                     </div>
                 </div>
 
-                
+
                 <div class="top-box">
 
                     <img src="https://cdn.dooca.store/418/products/coca.jpg?v=1589835707&webp=0">
@@ -40,8 +133,10 @@
                         <img id="mais" src="https://assets.stickpng.com/images/58afdddc829958a978a4a6a5.png" alt=""
                             onclick="mudandoQnt('-', this.parentNode)">
                         <span>0</span>
-                        <img id="mais" src="https://icon-library.com/images/black-plus-icon/black-plus-icon-24.jpg" onclick="mudandoQnt('+', this.parentNode)">
-                        <h6><span>0 </span>x R$<span> 8,99</span> <br> Total: R$ <span class = "precos"> 00,00 </span></h6>
+                        <img id="mais" src="https://icon-library.com/images/black-plus-icon/black-plus-icon-24.jpg"
+                            onclick="mudandoQnt('+', this.parentNode)">
+                        <h6><span>0 </span>x R$<span> 8,99</span> <br> Total: R$ <span class="precos"> 00,00 </span>
+                        </h6>
                     </div>
                 </div>
 
@@ -54,22 +149,41 @@
                         <img id="mais" src="https://assets.stickpng.com/images/58afdddc829958a978a4a6a5.png" alt=""
                             onclick="mudandoQnt('-', this.parentNode)">
                         <span id="menos">0</span>
-                        <img id="mais" src="https://icon-library.com/images/black-plus-icon/black-plus-icon-24.jpg" onclick="mudandoQnt('+', this.parentNode)">
-                        <h6><span> 0  </span>x R$<span> 39,99</span> <br> Total: R$ <span class = "precos"> 00,00 </span></h6>
+                        <img id="mais" src="https://icon-library.com/images/black-plus-icon/black-plus-icon-24.jpg"
+                            onclick="mudandoQnt('+', this.parentNode)">
+                        <h6><span> 0 </span>x R$<span> 39,99</span> <br> Total: R$ <span class="precos"> 00,00 </span>
+                        </h6>
                     </div>
                 </div>
 
 
             </div>
             <div class="box-price">
-<h6>Total R$<span id="Total">00,00</span></h6>
+                <h6>Total R$<span id="Total">00,00</span></h6>
 
             </div>
         </div>
     </div>
 
+    <footer class="border-top fixed-bottom text-muted bg-light">
+        <div class="container">
+            <div class="row py-3">
+                <div class="col-12 col-md-4 text-center text-md-left">
+                    2024 - Hamburgueria Online
+                </div>
+                <div class="col-12 col-md-4 text-center ">
+                    <a href="#" class="text-decoration-none text-dark">Politica de Privacidade</a>
+                </div>
+                <div class="col-12 col-md-4 text-center text-md-right">
+                    <a href="#" class="text-decoration-none text-dark">Administrar</a>
+                </div>
+            </div>
+        </div>
 
-    <script src="ex7.js"></script>
+    </footer>
+
+
+    <script src=".js"></script> <!--arrumar dps banco de dados-->
 </body>
 
 </html>
