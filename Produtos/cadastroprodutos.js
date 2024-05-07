@@ -11,7 +11,7 @@ const firebaseConfig = {
     projectId: "herogeek-9cf88",
     storageBucket: "herogeek-9cf88.appspot.com",
     messagingSenderId: "633995872369",
-    appId: "1:633995872369:web:45c6b71869455dd52bb3d0"
+    appId: "1:633995872369:web:45c6b71869455dd52bb3d0" 
 
 
 
@@ -20,7 +20,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
-var file = {};
+
 
 
 window.ChoseFile = (e) => {
@@ -28,7 +28,7 @@ window.ChoseFile = (e) => {
     var file = e.target.files[0];
 
     window.file = file;
-    console.log(file);
+    //console.log(file);
 
 }
 
@@ -39,6 +39,7 @@ window.ChoseFile = (e) => {
 
 window.cadastro = function cadastro() {
 
+    
 
     var produto = document.getElementById("produto").value;
 
@@ -46,13 +47,10 @@ window.cadastro = function cadastro() {
 
     var img = document.getElementById("botao").value;
 
+var file = window.file
 
-
-    if (produto == "" || preço == "" || img == "") {
-
+    if (produto == "" || preço == "" || img == "") { // "||" => OU 
         document.getElementById("mudar").innerHTML = "Preencha os campos"
-
-
 
     }
 
@@ -66,6 +64,8 @@ window.cadastro = function cadastro() {
 
             const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             console.log('upload esta' + progress + '% concluido.');
+            
+        },
             (error) => {
 
                 if (error.code == 'storage/unauthorized') {
@@ -77,50 +77,57 @@ window.cadastro = function cadastro() {
                 if (error.code == 'storage/uknown') {
                     console.log("Ocorreu um, erro desconhecido. Inspecione error.serverResponse");
                 }
+            },
 
+            () => {
 
-
-
-            }
-
-        },
-
-
-
-            console.log("ok")
-        document.getElementById("mudar").innerHTML = ""
-
-        get(child(ref(database), 'produtos/' + produto)).then
-                ((snapshot) => {
-                    console.log("ok2")
-                    if (snapshot.exists()) {
-
-                        document.getElementById("mudar").innerHTML = "Usuario ja registrado"
-
-                    } else {
-
-                        document.getElementById("mudar").innerHTML = "usuario cadastrado";
-                        ref(getStorage(), document.getElementById("botao").value)
-                        set(ref(database, 'produtos/' + produto),
-
-                            {
-
-                                preco: preco
-
-                            }
-
-                        );
-                    }
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                    console.log('Aquivo disponivel', downloadURL);
                 });
+            }
+        );
 
 
-        console.log(document.getElementById("botao"))
-        const imagem = ref(getStorage(), document.getElementById("botao").value)
-        console.log(imagem)
     }
 
+},
 
-}
+
+
+    console.log("ok")
+document.getElementById("mudar").innerHTML = ""
+
+get(child(ref(database), 'produtos/' + produto)).then
+    ((snapshot) => {
+        console.log("ok2")
+        if (snapshot.exists()) {
+
+            document.getElementById("mudar").innerHTML = "Usuario ja registrado"
+
+        } else {
+
+            document.getElementById("mudar").innerHTML = "usuario cadastrado";
+            ref(getStorage(), document.getElementById("botao").value)
+            set(ref(database, 'produtos/' + produto),
+
+                {
+
+                    preco: preco
+
+                }
+
+            );
+        }
+    });
+
+
+console.log(document.getElementById("botao"))
+const imagem = ref(getStorage(), document.getElementById("botao").value)
+console.log(imagem)
+    
+
+
+
 
 
 
