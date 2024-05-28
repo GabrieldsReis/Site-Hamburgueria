@@ -1,8 +1,8 @@
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js';
 
-import { child, get, getDatabase, set, } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
-import { ref, getStorage, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
+import { child, get, getDatabase,ref,  set, } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
+import { ref as storageRef, getStorage, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBJodswmt7lrtvmvTlCG1sLJa9bj0FdIs0",
@@ -56,9 +56,9 @@ var file = window.file
 
     else {
 
-        const storageRef = ref(getStorage(), 'imagens/' + file.name);
+        const storage = storageRef(getStorage(), 'imagens/' + file.name);
 
-        const uploadTask = uploadBytesResumable(storageRef, file, '');
+        const uploadTask = uploadBytesResumable(storage, file, '');
 
         uploadTask.on('state_changed', (snapshot) => {
 
@@ -90,12 +90,12 @@ var file = window.file
 
     }
 
-},
 
 
 
-    console.log("ok")
+
 document.getElementById("mudar").innerHTML = ""
+
 
 get(child(ref(database), 'produtos/' + produto)).then
     ((snapshot) => {
@@ -107,7 +107,7 @@ get(child(ref(database), 'produtos/' + produto)).then
         } else {
 
             document.getElementById("mudar").innerHTML = "usuario cadastrado";
-            ref(getStorage(), document.getElementById("botao").value)
+            
             set(ref(database, 'produtos/' + produto),
 
                 {
@@ -122,13 +122,13 @@ get(child(ref(database), 'produtos/' + produto)).then
 
 
 console.log(document.getElementById("botao"))
-const imagem = ref(getStorage(), document.getElementById("botao").value)
+const imagem = storageRef(getStorage(), document.getElementById("botao").value)
 console.log(imagem)
     
 
 
 
-
+}
 
 
 

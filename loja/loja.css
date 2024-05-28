@@ -6,6 +6,32 @@ body{
 
 }
 
+.icones {
+width:30px;
+height:30px
+
+}
+
+
+
+.pesquisa {
+
+    background-color:white;
+    border-radius:2%
+}
+
+.nav-item {
+
+width:50%;
+
+}
+.main-container {
+
+padding:0px 15px 15px 15px;
+background:black;
+
+}
+
 .out-box {
 
     display: flex;
@@ -31,11 +57,12 @@ display: flex;
 
 height: 14px;
 width: 14px;
+background-color: aqua;
 }
 
 p{
 
-    color: white;
+    color: orange;
 }
 #pd {
 

@@ -1,11 +1,7 @@
  
 
 
- if ( sessionStorage.getItem ("nome" ) == null ) {
- window.location.href = "../index.html "
-  
 
- }
 
 
 
