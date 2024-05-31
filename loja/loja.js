@@ -1,62 +1,53 @@
-
-var x = document.getElementsByClassName("mx-2")[0].clientHeight;
-
-document.getElementsByClassName("mx-2")[0].style.height = x + "px";
-
-
-
-
 function mudandoQnt(operacao, elemento) {
+   // Obtém o valor dentro do primeiro <span> filho do elemento e converte para número
+   var quantidadeSpan = elemento.getElementsByTagName("span")[0];
+   var quantidade = parseInt(quantidadeSpan.innerHTML);
 
+   // Variável para armazenar o resultado da operação
+   var conta = quantidade;
 
-
-   var a = elemento.getElementsByTagName("span")[0].innerHTML * 1;
-
-   var conta = 0;
-
+   
    if (operacao == "+") {
-      conta = a + 1;
-      elemento.getElementsByTagName("span")[0].innerHTML = conta;
-
+      conta++;
    }
 
-   if (operacao == "-") {
-      conta = a - 1;
-      elemento.getElementsByTagName("span")[0].innerHTML = conta;
-
-
-
-
+   
+   if (operacao == "-" && conta > 0) {
+      conta--;
    }
 
-   elemento.getElementsByTagName("span")[1].innerHTML = conta;
+   // Atualiza o valor do primeiro <span> com o novo valor
+   quantidadeSpan.innerHTML = conta;
 
-   elemento.getElementsByTagName("span")[3].innerHTML = ((conta * elemento.getElementsByTagName("span")[2].innerHTML.replace(",", ".")).toFixed(2) * 1 + "").replace(".", ",");
+   // Obtém o preço unitário do item
+   var precoUnitario = parseFloat(elemento.parentNode.parentNode.querySelector("h6").innerText.split('R$')[1].replace(",", "."));
+
+   // Calcula o valor total do item (quantidade * preço unitário)
+   var totalItem = conta * precoUnitario;
+
+   // Atualiza o preço total do item
+   elemento.parentNode.parentNode.querySelector(".precos").innerHTML = totalItem.toFixed(2).replace(".", ",");
+
+console.log(precoUnitario)
+console.log(conta)
+
+   atualizaTotalGeral();
+}
 
 
 
-
+function atualizaTotalGeral() {
+   // Obtém todos os elementos com a classe "precos"
    var precos = document.getElementsByClassName("precos");
 
-
+   // Variável para armazenar o total geral
    var total = 0;
 
-
+   // Itera sobre todos os elementos com a classe "precos"
    for (let i = 0; i < precos.length; i++) {
-
-
-      total = total + precos[i].innerHTML.replaceAll(",", ".") * 1;
-
-
-
-
+      total += parseFloat(precos[i].innerHTML.replace(",", "."));
    }
-   /*
-   total = precos[0].innerHTML.replaceAll(",", "." )*1 + precos[1].innerHTML.replaceAll("," , ".")*1 + precos[2].innerHTML.replaceAll("," , ".")*1;
-   modo ruim
-   */
 
-   document.getElementById("Total").innerHTML = (total.toFixed(2) * 1 + "").replace(".", ",");
-
-
+   // Atualiza o valor total no elemento com id "Total"
+   document.getElementById("Total").innerHTML = total.toFixed(2).replace(".", ",");
 }
