@@ -1,98 +1,24 @@
-body{
-
-    margin: 0;
-    padding: 0;
-    background-color: #a9a9a9;
-
+.navbar-custom {
+    background-color: #333;
 }
 
-.icones {
-width:30px;
-height:30px
-
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+    color: #fff;
 }
 
-
-
-.pesquisa {
-
-    background-color:white;
-    border-radius:2%
+.card-custom {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.nav-item {
-
-width:50%;
-
-}
-.main-container {
-
-padding:0px 15px 15px 15px;
-background:black;
-
+.footer-custom {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
 }
 
-.out-box {
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   
-}
-
-.box-container {
-
-    background-color: rgba(0, 0, 0, 0.466);
- padding: 0px 0px 10px 10px;
-width: 80%;
-}
-
-.top-box{
-
-display: flex;
-
-
-}
-#mais {
-
-height: 14px;
-width: 14px;
-background-color: aqua;
-}
-
-p{
-
-    color: orange;
-}
-#pd {
-
-border-bottom: 1px solid white;
-
-}
-
-
-img {
-
-padding: 5px;
-width: 100px;
-height: 100px;
-
-}
-
-.box-price {
-
-width: 20%;
-height: 380px;
-background-color: rgba(0, 0, 0, 0.466);
-
-}
-
-.img-prod:hover {
-
-  
-    border-radius: 3px;
-    box-shadow: 0 1px 6px rgba(0,0,0,.2)
-
-
-
+.footer-custom a {
+    color: #fff;
 }
