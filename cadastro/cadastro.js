@@ -21,13 +21,13 @@ const database = getDatabase(app);
 window.cadastro = function cadastro() {
 
 
-   var usuario = document.getElementById("nome").value;
+   var usuario = document.getElementById("email").value;
 
    var senha = document.getElementById("senha").value;
 
    if (usuario == "" || senha == "") {
 
-      document.getElementById("mudar").innerHTML = "preencha os campos"
+      document.getElementById("erro").innerHTML = "preencha os campos"
    }
 
 
