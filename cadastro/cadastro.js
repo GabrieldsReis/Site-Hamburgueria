@@ -25,9 +25,9 @@ window.cadastro = function cadastro() {
 
    var senha = document.getElementById("senha").value;
 
-   if (usuario == "" || senha == "") {
+  if (usuario == "" || senha == "") {
 
-      document.getElementById("erro").innerHTML = "preencha os campos"
+      document.getElementById("mudar").innerHTML = "preencha os campos"
    }
 
 
@@ -45,7 +45,7 @@ window.cadastro = function cadastro() {
 
             } else {
 
-               document.getElementById("erro").innerHTML = "usuario não cadastrado";
+               document.getElementById("mudar").innerHTML = "usuario não cadastrado";
                
                set(ref(database, 'usuarios/' + usuario),
 
@@ -68,3 +68,6 @@ window.cadastro = function cadastro() {
 
 
 }
+
+
+console.log()
