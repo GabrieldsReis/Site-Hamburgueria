@@ -1,7 +1,7 @@
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js';
 
-import { child, get, getDatabase,ref,  set, } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
+import { child, get, getDatabase, ref, set, } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
 import { ref as storageRef, getStorage, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
 
 const firebaseConfig = {
@@ -11,7 +11,7 @@ const firebaseConfig = {
     projectId: "herogeek-9cf88",
     storageBucket: "herogeek-9cf88.appspot.com",
     messagingSenderId: "633995872369",
-    appId: "1:633995872369:web:45c6b71869455dd52bb3d0" 
+    appId: "1:633995872369:web:45c6b71869455dd52bb3d0"
 
 
 
@@ -39,7 +39,7 @@ window.ChoseFile = (e) => {
 
 window.cadastro = function cadastro() {
 
-    
+
 
     var produto = document.getElementById("produto").value;
 
@@ -47,7 +47,7 @@ window.cadastro = function cadastro() {
 
     var img = document.getElementById("botao").value;
 
-var file = window.file
+    var file = window.file
 
     if (produto == "" || preço == "" || img == "") { // "||" => OU 
         document.getElementById("mudar").innerHTML = "Preencha os campos"
@@ -64,7 +64,7 @@ var file = window.file
 
             const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             console.log('upload esta' + progress + '% concluido.');
-            
+
         },
             (error) => {
 
@@ -83,6 +83,29 @@ var file = window.file
 
                 getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                     console.log('Aquivo disponivel', downloadURL);
+
+                    get(child(ref(database), 'produtos/' + produto)).then
+                        ((snapshot) => {
+                            console.log("ok2")
+                            if (snapshot.exists()) {
+
+                                document.getElementById("mudar").innerHTML = "Usuario ja registrado"
+
+                            } else {
+
+                                document.getElementById("mudar").innerHTML = "usuario cadastrado";
+
+                                set(ref(database, 'produtos/' + produto),
+
+                                    {
+
+                                        preco: preco,
+                                        url: downloadURL
+                                    }
+
+                                );
+                            }
+                        });
                 });
             }
         );
@@ -94,37 +117,15 @@ var file = window.file
 
 
 
-document.getElementById("mudar").innerHTML = ""
+    document.getElementById("mudar").innerHTML = ""
 
 
-get(child(ref(database), 'produtos/' + produto)).then
-    ((snapshot) => {
-        console.log("ok2")
-        if (snapshot.exists()) {
-
-            document.getElementById("mudar").innerHTML = "Usuario ja registrado"
-
-        } else {
-
-            document.getElementById("mudar").innerHTML = "usuario cadastrado";
-            
-            set(ref(database, 'produtos/' + produto),
-
-                {
-
-                    preco: preco
-
-                }
-
-            );
-        }
-    });
 
 
-console.log(document.getElementById("botao"))
-const imagem = storageRef(getStorage(), document.getElementById("botao").value)
-console.log(imagem)
-    
+    console.log(document.getElementById("botao"))
+    const imagem = storageRef(getStorage(), document.getElementById("botao").value)
+    console.log(imagem)
+
 
 
 
