@@ -39,7 +39,7 @@ window.login = function login() {
             if (snapshot.val().senha== senha){
                
                 sessionStorage.setItem("nome", "Logado" );
-                window.location.href = "../ex%207/ex7.html"
+                window.location.href = "./Site-Hamburgueria/loja/loja.html"
 
             }
      } else {

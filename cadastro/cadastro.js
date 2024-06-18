@@ -45,7 +45,7 @@ window.cadastro = function cadastro() {
 
             } else {
 
-               document.getElementById("mudar").innerHTML = "usuario não cadastrado";
+               document.getElementById("mudar").innerHTML = "usuario cadastrado";
                
                set(ref(database, 'usuarios/' + usuario),
 
