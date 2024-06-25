@@ -19,6 +19,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
+
 window.login = function login() {
 
 
@@ -39,6 +40,7 @@ window.login = function login() {
             if (snapshot.val().senha== senha){
                
                 sessionStorage.setItem("nome", "Logado" );
+                sessionStorage.geItem("Administrador")
                 window.location.href = "./Site-Hamburgueria/loja/loja.html"
 
             }
@@ -49,3 +51,5 @@ window.login = function login() {
      }
     });
 }
+
+

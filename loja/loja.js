@@ -51,3 +51,9 @@ function atualizaTotalGeral() {
    // Atualiza o valor total no elemento com id "Total"
    document.getElementById("Total").innerHTML = total.toFixed(2).replace(".", ",");
 }
+
+function adm(){
+
+localStorage.getItem("Administrador")
+
+}

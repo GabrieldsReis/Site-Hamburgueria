@@ -4,6 +4,7 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebas
 import { child, get, getDatabase, ref, set, } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
 import { ref as storageRef, getStorage, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyBJodswmt7lrtvmvTlCG1sLJa9bj0FdIs0",
     authDomain: "herogeek-9cf88.firebaseapp.com",
@@ -13,13 +14,15 @@ const firebaseConfig = {
     messagingSenderId: "633995872369",
     appId: "1:633995872369:web:45c6b71869455dd52bb3d0"
 
-
-
 };
 
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+
+
+
+
 
 
 

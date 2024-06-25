@@ -69,5 +69,3 @@ window.cadastro = function cadastro() {
 
 }
 
-
-console.log()
