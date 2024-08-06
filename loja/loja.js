@@ -1,3 +1,23 @@
+adm = sessionStorage.getItem("Administrador");
+var inv = document.getElementById("invisivel")
+
+
+if(adm != "Administrador"){
+
+
+inv.hidden = true
+ 
+}  else {
+
+   inv.hidden = false
+}
+
+   
+
+   
+
+
+
 function mudandoQnt(operacao, elemento) {
    // Obtém o valor dentro do primeiro <span> filho do elemento e converte para número
    var quantidadeSpan = elemento.getElementsByTagName("span")[0];

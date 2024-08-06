@@ -1,3 +1,4 @@
+alert("ok");
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js';
 
@@ -21,8 +22,15 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
 
+var adm = sessionStorage.getItem("Administrador");
 
 
+if (adm != "Administrador") {
+
+    window.location.href = "../loja/loja.html"
+
+
+}
 
 
 
@@ -92,11 +100,11 @@ window.cadastro = function cadastro() {
                             console.log("ok2")
                             if (snapshot.exists()) {
 
-                                document.getElementById("mudar").innerHTML = "Usuario ja registrado"
+                                document.getElementById("mudar").innerHTML = "produto ja registrado"
 
                             } else {
 
-                                document.getElementById("mudar").innerHTML = "usuario cadastrado";
+                                document.getElementById("mudar").innerHTML = "produto cadastrado";
 
                                 set(ref(database, 'produtos/' + produto),
 

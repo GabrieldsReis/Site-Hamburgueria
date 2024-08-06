@@ -40,8 +40,8 @@ window.login = function login() {
             if (snapshot.val().senha== senha){
                
                 sessionStorage.setItem("nome", "Logado" );
-                sessionStorage.setItem("Administrador",snapshot.val().adm)
-                window.location.href = "./loja/loja.html"
+                sessionStorage.setItem("Administrador",snapshot.val().cargo);
+                window.location.href = "./loja/loja.html";
 
             }
      } else {

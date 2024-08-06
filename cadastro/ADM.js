@@ -34,41 +34,41 @@ window.handle = function handle(e) {
 
 window.confirmar = function confirmar() {
 
-   
+
    var usuario = document.getElementById("email").value;
 
 
 
-   if (usuario == "" ) {
+   if (usuario == "") {
 
       document.getElementById("mudar").innerHTML = "preencha os campos"
    }
 
    else {
 
-      
+
       get(child(ref(database), 'usuarios/' + usuario)).then
-      ((snapshot) => {
-         
- 
+         ((snapshot) => {
 
-         if (snapshot.exists()) {
-            update(ref(database, 'usuarios/' + usuario),
-            {
 
-               cargo: "Administrador"
 
-            });
-            document.getElementById("erro").innerHTML = "Deu certo";
+            if (snapshot.exists()) {
+               update(ref(database, 'usuarios/' + usuario),
+                  {
 
-         }
+                     cargo: "Administrador"
 
-         else {
-            
-            document.getElementById("erro").innerHTML = "usuario não existe";
+                  });
+               document.getElementById("erro").innerHTML = "Deu certo";
 
-         }
-      });
+            }
+
+            else {
+
+               document.getElementById("erro").innerHTML = "usuario não existe";
+
+            }
+         });
    }
 }
 
